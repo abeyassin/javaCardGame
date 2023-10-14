@@ -16,23 +16,23 @@ public class PictureMemoryGame extends JFrame {
 
     public PictureMemoryGame() {
         setTitle("Ibrahim's Card Matching Game!");
-        setSize(500, 500);
+        setSize(480, 720);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         imagePaths = new ArrayList<>();
         //These are the pictures used for the game.
-        imagePaths.add("pic1.png");
-        imagePaths.add("pic2.png");
-        imagePaths.add("pic3.png");
-        imagePaths.add("pic4.png");
-        imagePaths.add("pic5.png");
-        imagePaths.add("pic6.png");
-        imagePaths.add("pic1.png");
-        imagePaths.add("pic2.png");
-        imagePaths.add("pic3.png");
-        imagePaths.add("pic4.png");
-        imagePaths.add("pic5.png");
-        imagePaths.add("pic6.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_1.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_2.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_3.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_4.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_5.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_6.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_1.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_2.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_3.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_4.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_5.png");
+        imagePaths.add("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_6.png");
 
         cardImages = new ArrayList<>();
         for (String imagePaths : imagePaths) {
@@ -48,26 +48,13 @@ public class PictureMemoryGame extends JFrame {
         for (int i = 0; i < cardButtons.length; i++) {
             final int index = i;
             cardButtons[i] = new JButton();
-            cardButtons[i].setIcon(new ImageIcon("Illuminati.png"));
+            cardButtons[i].setIcon(new ImageIcon("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_illuminati.png"));
             cardButtons[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (imagePaths.get(firstCardIndex).equals(imagePaths.get(secondCardIndex))) {
-                        cardButtons[firstCardIndex].setIcon(null);
-                        cardButtons[secondCardIndex].setIcon(null);
-                        cardImages.set(firstCardIndex, null);
-                        cardImages.set(secondCardIndex, null);
-                        numberOfMatches++;
+                    handleCardClick(index);
 
-                    if (numberOfMatches ==imagePaths.size()/2){
-                        JOptionPane.showMessageDialog(null, "Congratulations! You Win!");
-                        System.exit(0);
-
-                    }
-
-                    }
                 }
-
             });
             cardPanel.add(cardButtons[i]);
         }
@@ -103,8 +90,8 @@ public class PictureMemoryGame extends JFrame {
                             System.exit(0);
                         }
                     } else {
-                        cardButtons[firstCardIndex].setIcon(new ImageIcon("Illuminati.png"));
-                        cardButtons[secondCardIndex].setIcon(new ImageIcon("Illuminati.png"));
+                        cardButtons[firstCardIndex].setIcon(new ImageIcon("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_illuminati.png"));
+                        cardButtons[secondCardIndex].setIcon(new ImageIcon("C:/Users/Ibrahim's Computer/IdeaProjects/javaCardGame/png_GUI/pic_illuminati.png"));
                     }
                     firstCardIndex = -1;
                 }
@@ -117,9 +104,9 @@ public class PictureMemoryGame extends JFrame {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
-            public void run() {
+            public void run() {new PictureMemoryGame().setVisible(true);
 
             }
         });
     }
-    }
+}
